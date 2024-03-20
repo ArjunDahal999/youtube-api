@@ -1,3 +1,4 @@
 yt_dlp
 fastapi
 youtube-search-python
+uvicorn
