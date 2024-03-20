@@ -14,6 +14,7 @@ def home():
 def search(search:str):  
     videosSearch = VideosSearch(search, limit = 10)
     data = videosSearch.result()["result"]
+    print(data)
     responses = []
     for entry in data:
         response = {
@@ -23,7 +24,7 @@ def search(search:str):
         "publishedTime": entry["publishedTime"],
         "duration": entry["duration"],
         "viewCount": entry["viewCount"]["text"],
-        "thumbnails": entry["thumbnails"][1],  # Taking the higher quality thumbnail
+        "thumbnails": entry["thumbnails"][0],  # Taking the higher quality thumbnail
         "channelName": entry["channel"]["name"],
         "channelThumbnail": entry["channel"]["thumbnails"][0],
         "link":entry["link"]
