@@ -14,7 +14,6 @@ def home():
 def search(search:str):  
     videosSearch = VideosSearch(search, limit = 10)
     data = videosSearch.result()["result"]
-    print(data)
     responses = []
     for entry in data:
         response = {
