@@ -3,6 +3,7 @@
 from fastapi import FastAPI, Query, HTTPException
 from youtubesearchpython import VideosSearch
 import yt_dlp 
+import uvicorn
 
 app = FastAPI()
 
@@ -59,3 +60,7 @@ async def download_and_get_mp3_url(video_url: str):
 async def get_downloadable_mp3_url(video_url: str = Query(..., description="URL of the YouTube video")):
     mp3_url = await download_and_get_mp3_url(video_url)
     return {"download_url": mp3_url['url']}
+
+
+if __name__ == '__main__':
+    uvicorn.run(app)
